@@ -108,6 +108,20 @@ form{
 	padding-left: 35px;
 }
 
+.dialog-active{
+	display: block;
+	margin-top: -150px;
+	z-index: 8;
+}
+
+.button-more{
+	position: relative;
+	float: right;
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
 @media (max-width: 1024px){
 
 	body{

@@ -3,15 +3,15 @@
 
   angular
   .module('app')
-  .factory('dogAPI', dogAPI);
+  .factory('visitAPI', visitAPI);
 
-  dogAPI.$inject = ['$resource'];
+  visitAPI.$inject = ['$resource'];
 
-  function dogAPI($resource){
+  function visitAPI($resource){
     return $resource('', {id: '@id'}, {
-      index: {url: '/api/dogs', method: 'GET', isArray: true},
+      index: {url: '/api/visits', method: 'GET', isArray: true},
       // new: {url: '/api/users/new', method: 'GET'},
-      create: {url: '/api/dogs', method: 'POST'},
+      create: {url: '/api/visits', method: 'POST'},
       // edit: {url: '/api/users/:id/edit', method: 'GET'},
       // update: {url: '/api/users/:id', method: 'PATCH'},
       // destroy: {url: '/api/users/:id', method: 'DELETE'},

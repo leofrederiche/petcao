@@ -34,7 +34,13 @@ while(count < 1000) do
 	a.tel = "";
 	5.times{a.tel << rand(10)}
 
-	if a.save
+	# VISIT
+
+	v = Visit.new
+	v.dog_id = count
+	v.visit = Time.at(rand * Time.now.to_i)
+
+	if a.save && v.save
 		puts "#{count} Success!!"
 		success = success + 1
 	else
@@ -44,6 +50,27 @@ while(count < 1000) do
 
 	count = count + 1
 end
+
+count = 0
+
+while(count < 100) do
+
+	v = Visit.new
+	v.dog_id = rand(count + 100)
+	v.visit = Time.at(rand * Time.now.to_i)
+
+	if v.save
+		puts "#{count} Success!!"
+		success = success + 1
+	else
+		puts "#{count} Fail!!"
+		fails = fails + 1
+	end
+
+	count = count + 1
+
+end
+
 
 puts "Total de erros = #{fails}"
 puts "Total de registros = #{success}"

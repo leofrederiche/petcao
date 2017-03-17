@@ -7,4 +7,6 @@ class Dog < ApplicationRecord
 			:tel
 
 	validates_uniqueness_of :owner_name, scope: :dog_name
+
+	has_many :visits
 end

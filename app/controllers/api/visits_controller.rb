@@ -4,21 +4,21 @@ class API::VisitsController < API::APIController
 		@visit_of = params[:dog_id]
 
 		if @visit_of
-			@visits = Visit.find_by_dog_id(@visit_of)
+			@visits = Visit.where(dog_id: @visit_of)
 			render json: @visits, status: :ok
 		else
-			render json: Visit.all, stauts: :ok
+			render json: Visit.all.reverse, stauts: :ok
 		end
 	end
 
 	def create
 		@visit = Visit.new(visit_params)
-		@visit.visit = Date.today
+		@visit.visit = Date.current
 
 		if @visit.save
 			render json: @visit, status: :ok
 		else
-			render :index
+			render json: @visit.errors, status: :no_content
 		end
 	end
 

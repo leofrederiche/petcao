@@ -16,15 +16,37 @@
 		</form>
 	</div>
 
-	<div class="mdl-grid">
+	<center ng-show="vm.loading">
+		<%= image_tag "loading.gif", style: "width: 200px;" %>
+	</center>
 
+	<div class="mdl-grid">
 		<div class="mdl-cell mdl-cell--4-col mdl-shadow--2dp card-dog" ng-repeat="dog in vm.dogs | filter: search | limitTo: 18">
 			<p class="owner"><b>{{dog.owner_name}}</b></p>
 			<h4>{{dog.dog_name}}</h4>
 			<p><b>Raça:</b> {{dog.breed}}</p>
+			<button ng-click="dog.visible = true" class="button-more">
+				<i class="material-icons mdl-color-text--accent">more</i>
+			</button>
 			<p><b>Gênero:</b> {{dog.gender}}</p>
-		</div>
 
+			<dialog class="mdl-dialog dialog-active" ng-show="dog.visible" ng-controller="VisitIndex as mv" ng-init="mv.load(dog.id)">
+			    <h4 class="mdl-dialog__title">{{dog.dog_name}}</h4>
+			    <div class="mdl-dialog__content">
+			    	<b>Visitas:</b><br>
+			    	<span>{{dog.created_at | date}}</span>
+					<span ng-repeat="visit in mv.visits">
+						<br>
+						{{visit.visit | date}}
+					</span>
+			    </div>
+			    <div class="mdl-dialog__actions">
+			    	<input type="text" ng-show="false" ng-model="mv.visit.dog_id" ng-init="mv.visit.dog_id = dog.id">
+			    	<button type="button" class="mdl-button mdl-color-text--accent" ng-click="dog.visible = false">Ok</button>
+			    	<button type="button" class="mdl-button mdl-color-text--primary" ng-click="mv.create()">Adicionar visita</button>
+			    </div>
+			</dialog>
+		</div>
 	</div>
 
 </div>
