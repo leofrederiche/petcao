@@ -1,24 +1,14 @@
-# README
+# USING
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Material Design Lite
+* AngularJS 1
+* Rails 5
+* Rails API
 
-Things you may want to cover:
+# TO RUN
 
-* Ruby version
+Clone this repository on your machine and run in folder:
 
-* System dependencies
+* $ bundle install && rake db:reset && rails server
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The test of data is running by seeds, your terminal will go show to you the results
