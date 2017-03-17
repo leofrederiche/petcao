@@ -1,0 +1,30 @@
+<div ng-controller="DogIndex as vm" ng-init="vm.load(1000);">
+	<h3>Lista de chamada</h3>
+	<div class="mdl-grid">
+		<form style=" text-align: left;">
+
+			<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+			    <input class="mdl-textfield__input" type="text" id="sample3" ng-model="search">
+				<label class="mdl-textfield__label" for="sample3">Pesquisar </label>
+			</div>
+
+			<%= link_to new_dog_path do %>
+				<button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary">
+					Novo cãozinho
+				</button>
+			<% end %>
+		</form>
+	</div>
+
+	<div class="mdl-grid">
+
+		<div class="mdl-cell mdl-cell--4-col mdl-shadow--2dp card-dog" ng-repeat="dog in vm.dogs | filter: search | limitTo: 18">
+			<p class="owner"><b>{{dog.owner_name}}</b></p>
+			<h4>{{dog.dog_name}}</h4>
+			<p><b>Raça:</b> {{dog.breed}}</p>
+			<p><b>Gênero:</b> {{dog.gender}}</p>
+		</div>
+
+	</div>
+
+</div>

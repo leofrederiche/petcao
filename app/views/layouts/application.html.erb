@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Petcao</title>
-    <meta name=”viewport” content=”width=device-width, initial-scale=1″>
+    <title>Pet-cao</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-	<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  	<!-- <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.red-blue.min.css" /> -->
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.pink-indigo.min.css" />
+  	<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 
     <%= csrf_meta_tags %>
 
@@ -14,7 +15,44 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="mdl-layout mdl-js-layout mdl-layout--fixed-header" ng-app="app">
+
+    <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        <%= link_to root_path, class: "title" do %>
+          <span class="mdl-layout-title">Pet-Cao</span>
+        <% end %>
+
+        <div class="mdl-layout-spacer"></div>
+
+        <nav class="mdl-navigation mdl-layout--large-screen-only">
+          <%= link_to "Inicio", root_path, class: "mdl-navigation__link" %>
+          <%= link_to "Consultar", dogs_path, class: "mdl-navigation__link" %>
+          <%= link_to "Registrar", new_dog_path, class: "mdl-navigation__link" %>
+        </nav>
+      </div>
+    </header>
+
+    <div class="mdl-layout__drawer mdl-layout--small-screen-only">
+      <span class="mdl-layout-title mdl-color--primary mdl-color-text--white">Menu</span>
+      <nav class="mdl-navigation">
+        <%= link_to "Inicio", root_path, class: "mdl-navigation__link" %>
+        <%= link_to "Consultar", dogs_path, class: "mdl-navigation__link" %>
+        <%= link_to "Registrar", new_dog_path, class: "mdl-navigation__link" %>
+      </nav>
+    </div>
+
+    <main class="mdl-layout__content">
+      <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--1-col mdl-layout--medium-screen-only"></div>
+        <div class="mdl-cell mdl-cell--10-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+          <%= yield %>
+          <div id="toast">
+            <div class="mdl-snackbar__text">
+            </div>
+          </div>
+        </div>
+    </div>
+    </main>
   </body>
 </html>

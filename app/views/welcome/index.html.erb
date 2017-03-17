@@ -1,1 +1,32 @@
-<h1>Hello</h1>
+<div class="container-welcome">
+	<h1 class="mdl-layout--large-screen-only">Por que eles merecem!!!</h1>
+	<h3 class="mdl-layout--small-screen-only">Por que eles merecem!!!</h3>
+
+	<div class="mdl-layout--large-screen-only btns-home">
+		<%= link_to dogs_path do %>
+			<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color-text--white">
+			  Consultar chamada
+			</button>
+		<% end %>
+
+		<%= link_to new_dog_path do %>
+			<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color-text--white">
+			  Registrar cãozinho
+			</button>
+		<% end %>
+	</div>
+
+	<div class="mdl-layout--small-screen-only btns-home">
+		<%= link_to dogs_path do %>
+			<button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white mdl-button--raised mdl-button--primary" style="position: relative; margin: 0 5%; float: left; maring: 0; width: 40%;">
+			  Consultar chamada
+			</button>
+		<% end %>
+
+		<%= link_to new_dog_path do %>
+			<button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white mdl-button--raised mdl-button--accent" style="position: relative; margin: 0 5%; float: right; maring: 0; width: 40%;">
+			  Registrar cãozinho
+			</button>
+		<% end %>
+	</div>
+</div>

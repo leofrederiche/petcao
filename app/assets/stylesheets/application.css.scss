@@ -1,0 +1,136 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+/*
+	font-family: 'Raleway', sans-serif;
+*/
+
+body{
+	background-color: #eee;
+}
+
+.container-welcome{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 80vh;
+	background-image: image-url("bg1.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+}
+
+.container-welcome::after{
+	content: "developer by - Leonardo Camp";
+	text-align: center;
+	position: absolute;
+	margin: 0 auto;
+	padding: 5px;
+	background-color: #eee;
+	bottom: -30px;
+	left: 0;
+	color: rgba(0,0,0,0.3);
+	width: calc(100% - 10px);
+}
+
+.container-welcome h1{
+	font-weight: bold;
+	color: #fff;
+	text-shadow: 0 0 10px black;
+	padding: 20px;
+	position: relative;
+	top: 20%;
+	left: 50px;
+	width: 30%;
+	text-align: left;
+	font-family: 'Raleway', sans-serif;
+}
+
+form{
+	width: calc(100% - 20px);
+	min-height: 100px;
+	padding: 10px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.title{
+	text-decoration: none;
+	color: #fff;
+}
+
+.stretch{
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+.card-dog{
+	padding: 0 20px;
+	text-align: left;
+}
+
+.owner{
+	position: relative;
+	float: right;
+	top: 25px;
+}
+
+.mdl-layout__drawer{
+	text-align: left;
+}
+
+.mdl-shadow--2dp{
+	background-color: #fff !important;
+
+}
+
+.btns-home{
+	position: relative; 
+	top: 130px;
+	margin: 0 auto;
+	padding-left: 35px;
+}
+
+@media (max-width: 1024px){
+
+	body{
+		text-align: center;
+	}
+
+	.container-welcome{
+		width: 100%;
+	}
+
+	.container-welcome h3{
+		font-weight: bold;
+		color: #fff;
+		text-shadow: 0 0 10px rgba(0,0,0,0.8);
+		padding: 20px;
+		margin-top: 0px;
+		font-family: 'Raleway', sans-serif;
+	}
+
+	.btns-home{
+		position: relative; 
+		top: 40vh;
+		padding-left: 0;
+		margin: 0;
+	}
+}
